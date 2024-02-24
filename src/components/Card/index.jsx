@@ -1,4 +1,7 @@
 import { IconBookFilled } from '@tabler/icons-react';
+
+import Info from '@components/Info';
+
 import classes from './index.module.scss';
 
 const obj = {
@@ -30,7 +33,7 @@ const obj = {
   ]
 }
 
-const SubjectCard = () => {
+const Card = () => {
   return (
     <div className={classes.card}>
       <div className={classes.title}>
@@ -42,9 +45,14 @@ const SubjectCard = () => {
         <strong>{obj.subjectName}</strong>
       </div>
 
-
+      <Info
+        group={obj.groupName}
+        course={obj.course}
+        amountOfStudents={obj.amountOfStudents}
+        semestr={obj.semester}
+      />
     </div>
   )
 }
 
-export default SubjectCard;
+export default Card;

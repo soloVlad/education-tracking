@@ -1,0 +1,21 @@
+@import '@scss/variables';
+
+.infoWrapper {
+  padding-top: 4px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid $delim-gray;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 4px;
+
+  @media (max-width: 400px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.info {
+  display: grid;
+  grid-template-columns: 4fr 2fr;
+  column-gap: 4px;
+}

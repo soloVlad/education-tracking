@@ -1,1 +1,2 @@
-export { default as SubjectCard } from './SubjectCard';
+export { default as Card } from './Card';
+export { default as Info } from './Info';

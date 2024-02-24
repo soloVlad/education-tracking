@@ -1,6 +1,8 @@
 @import '@scss/variables';
 
 .card {
+  width: 100%;
+  max-width: 700px;
   padding: 12px;
   border: solid 2px $shadow-gray;
   border-radius: $radius;
@@ -13,7 +15,7 @@
   background-color: $gray-blue;
   border-top-right-radius: $radius;
   border-top-left-radius: $radius;
-  border-bottom: 1px solid $delim-gray;
+  border-bottom: 2px solid $delim-gray;
 
   display: flex;
   justify-content: center;

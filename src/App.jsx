@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-import { SubjectCard } from "@components";
+import { Card } from "@components";
 
 import './scss/app.scss';
 
@@ -18,7 +18,8 @@ const App = () => {
 
   return (
     <>
-      <SubjectCard />
+      <Card />
+      <Card />
     </>
   )
 }
