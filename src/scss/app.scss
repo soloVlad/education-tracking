@@ -1,0 +1,10 @@
+@import './variables';
+@import './libs/normalize';
+
+#root {
+  margin: 0 auto;
+  max-width: 1440px;
+  width: 100%;
+
+  flex: 1;
+}

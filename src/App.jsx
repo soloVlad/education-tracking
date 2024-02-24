@@ -1,10 +1,10 @@
-import './App.scss'
+import './scss/app.scss';
 
 const App = () => {
   return (
-    <>
+    <div className='bordered'>
       Start
-    </>
+    </div>
   )
 }
 
