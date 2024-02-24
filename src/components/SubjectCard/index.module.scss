@@ -1,0 +1,33 @@
+@import '@scss/variables';
+
+.card {
+  padding: 12px;
+  border: solid 2px $shadow-gray;
+  border-radius: $radius;
+
+  color: $dark-blue;
+}
+
+.title {
+  padding: 16px;
+  background-color: $gray-blue;
+  border-top-right-radius: $radius;
+  border-top-left-radius: $radius;
+  border-bottom: 1px solid $delim-gray;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 4px;
+
+  font-weight: 700;
+  text-align: center;
+
+  svg {
+    flex-shrink: 0;
+  }
+}
+
+:export {
+  darkBlue: $dark-blue;
+}
