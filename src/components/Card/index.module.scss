@@ -2,8 +2,9 @@
 
 .card {
   width: 100%;
+  height: fit-content;
   max-width: 700px;
-  padding: 12px;
+  padding: 16px;
   border: solid 2px $shadow-gray;
   border-radius: $radius;
 

@@ -1,6 +1,6 @@
 import { IconBookFilled } from '@tabler/icons-react';
 
-import Info from '@components/Info';
+import { Info, DetailsTable } from '@components';
 
 import classes from './index.module.scss';
 
@@ -15,6 +15,7 @@ const obj = {
   "laboratoryHours": "10",
   "practicHours": "0",
   "seminarHours": "0",
+
   "exam": true,
   "offset": false,
   "additionalInfo": "Пары кроме субботы",
@@ -48,9 +49,11 @@ const Card = () => {
       <Info
         group={obj.groupName}
         course={obj.course}
-        amountOfStudents={obj.amountOfStudents}
-        semestr={obj.semester}
+        amountOfStudents={obj.studentsNumber}
+        semester={obj.semestr}
       />
+
+      <DetailsTable />
     </div>
   )
 }

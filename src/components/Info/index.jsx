@@ -1,21 +1,23 @@
 import classes from './index.module.scss';
 
-const InfoLine = ({ key, value }) => {
+const InfoLine = ({ title, value }) => {
   return (
     <div className={classes.info}>
-      <b>{key}</b>
+      <b>{title}</b>
       <p>{value}</p>
     </div>
   )
 }
 
 const Info = ({ group, course, amountOfStudents, semester }) => {
+  console.log(group);
+
   return (
     <div className={classes.infoWrapper}>
-      <InfoLine key='Группа' value={group} />
-      <InfoLine key='Курс' value={course} />
-      <InfoLine key='Количество курсантов' value={amountOfStudents} />
-      <InfoLine key='Семестр' value={semester} />
+      <InfoLine title='Группа' value={group} />
+      <InfoLine title='Курс' value={course} />
+      <InfoLine title='Количество курсантов' value={amountOfStudents} />
+      <InfoLine title='Семестр' value={semester} />
     </div>
   )
 }

@@ -1,0 +1,49 @@
+@import '@scss/variables';
+
+.table {
+  margin-top: 20px;
+  width: 100%;
+
+  border-collapse: collapse;
+
+  text-align: center;
+
+  &,
+  th,
+  td {
+    border: 1px solid $border-gray;
+  }
+
+  th {
+    padding: 4px;
+    border-bottom: 2px solid $dark-blue;
+  }
+
+  td {
+    padding: 2px;
+  }
+
+  tbody {
+    tr {
+      &:nth-of-type(2n + 1) {
+        td:nth-of-type(2n + 1) {
+          background-color: $primary-white;
+        }
+
+        td:nth-of-type(2n) {
+          background-color: $secondary-white;
+        }
+      }
+
+      &:nth-of-type(2n) {
+        td:nth-of-type(2n + 1) {
+          background-color: $secondary-white;
+        }
+
+        td:nth-of-type(2n) {
+          background-color: $white;
+        }
+      }
+    }
+  }
+}
