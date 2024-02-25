@@ -10,8 +10,6 @@ const InfoLine = ({ title, value }) => {
 }
 
 const Info = ({ group, course, amountOfStudents, semester }) => {
-  console.log(group);
-
   return (
     <div className={classes.infoWrapper}>
       <InfoLine title='Группа' value={group} />
