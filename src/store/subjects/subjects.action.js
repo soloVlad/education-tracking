@@ -28,3 +28,30 @@ export const fetchSubjectsStartAsync = () => {
     }
   };
 };
+
+// const RESULT_URL = 'https://bgaa.by/test_result';
+const RESULT_URL = 'https://bgaa.by/test_result';
+
+export const sendCurrentStateAsync = () => {
+  return async (dispatch, getState) => {
+    try {
+      const currentState = getState();
+
+      console.log(currentState);
+
+      await fetch(RESULT_URL, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          data: currentState.subjects.subjects,
+          teachers: currentState.subjects.teachers
+        })
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  }
+}

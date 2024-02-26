@@ -31,6 +31,9 @@ export const subjectsReducer = (
     case SUBJECTS_ACTION_TYPES.FETCH_SUBJECTS_FAILED:
       return { ...state, isLoading: false, error: payload };
 
+    case SUBJECTS_ACTION_TYPES.SEND_SUBJECTS:
+      return state;
+
     default:
       return state;
   }

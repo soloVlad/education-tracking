@@ -8,12 +8,32 @@
   padding: 20px 10px;
 
   flex: 1;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
 
   font-size: 16px;
   color: $text-color;
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .saveButton {
+    margin-top: 8px;
+    padding: 8px;
+    background-color: $green;
+    border: none;
+    border-radius: $radius;
+
+    color: $white;
+
+    cursor: pointer;
+    transition: 0.2s all ease-out;
+
+    &:hover {
+      transform: translateY(1px);
+    }
+  }
 
   @media (max-width: 1180px) {
     grid-template-columns: 1fr;
