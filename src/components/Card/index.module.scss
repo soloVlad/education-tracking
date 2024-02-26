@@ -3,6 +3,7 @@
 .card {
   width: 100%;
   height: fit-content;
+  min-width: 320px;
   max-width: 700px;
   padding: 16px;
   border: solid 2px $shadow-gray;
@@ -29,6 +30,11 @@
   svg {
     flex-shrink: 0;
   }
+}
+
+.tableContainer {
+  max-width: 100%;
+  overflow-x: auto;
 }
 
 :export {
