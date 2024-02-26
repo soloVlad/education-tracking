@@ -37,8 +37,6 @@ export const sendCurrentStateAsync = () => {
     try {
       const currentState = getState();
 
-      console.log(currentState);
-
       await fetch(RESULT_URL, {
         method: 'POST',
         headers: {

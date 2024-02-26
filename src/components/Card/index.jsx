@@ -5,8 +5,6 @@ import { Info, DetailsTable } from '@components';
 import classes from './index.module.scss';
 
 const Card = ({ subject }) => {
-  console.log(subject);
-
   return (
     <div className={classes.card}>
       <div className={classes.title}>
