@@ -56,9 +56,16 @@ export const sendCurrentStateAsync = () => {
   }
 }
 
-export const updateSubjectInfo = (subjectId, podgroupId, podgroupPropName, value) => (
+export const updatePodgroupInfo = (subjectId, podgroupId, podgroupPropName, value) => (
   reducerUtils.createAction(
-    SUBJECTS_ACTION_TYPES.UPDATE_SUBJECTS,
+    SUBJECTS_ACTION_TYPES.UPDATE_PODGROUP,
     { subjectId, podgroupId, podgroupPropName, value }
+  )
+);
+
+export const updateSubject = (subjectId, propName, value) => (
+  reducerUtils.createAction(
+    SUBJECTS_ACTION_TYPES.UPDATE_SUBJECT,
+    { subjectId, propName, value }
   )
 );

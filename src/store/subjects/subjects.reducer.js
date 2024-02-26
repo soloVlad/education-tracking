@@ -34,7 +34,7 @@ export const subjectsReducer = (
     case SUBJECTS_ACTION_TYPES.SEND_SUBJECTS:
       return state;
 
-    case SUBJECTS_ACTION_TYPES.UPDATE_SUBJECTS:
+    case SUBJECTS_ACTION_TYPES.UPDATE_PODGROUP:
       const { subjectId, podgroupId, podgroupPropName, value } = payload;
 
       const updatedSubjects = state.subjects.map(subject => {
@@ -45,6 +45,16 @@ export const subjectsReducer = (
         return subject;
       })
       return { ...state, subjects: updatedSubjects }
+
+    case SUBJECTS_ACTION_TYPES.UPDATE_SUBJECT:
+      const subjectsWithUpdatedItem = state.subjects.map(subject => {
+        if (subject.uniqueId === payload.subjectId) {
+          subject[payload.propName] = payload.value;
+        }
+
+        return subject;
+      });
+      return { ...state, subjects: subjectsWithUpdatedItem }
 
     default:
       return state;

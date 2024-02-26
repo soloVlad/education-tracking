@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 
 import { selectTeachers } from '@store/subjects/subjects.selector';
-import { updateSubjectInfo } from "@store/subjects/subjects.action";
+import { updatePodgroupInfo } from "@store/subjects/subjects.action";
 
 import classes from './index.module.scss';
 
@@ -18,7 +18,7 @@ const TeachersSelect = ({
 
   const handleTeacherChange = (event) => {
     dispatch(
-      updateSubjectInfo(subjectId, podgroupId, podgroupPropName, event.target.value)
+      updatePodgroupInfo(subjectId, podgroupId, podgroupPropName, event.target.value)
     );
   }
 
