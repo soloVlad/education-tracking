@@ -56,6 +56,16 @@ export const subjectsReducer = (
       });
       return { ...state, subjects: subjectsWithUpdatedItem }
 
+    case SUBJECTS_ACTION_TYPES.ADD_PODGROUP:
+      const subjectsWithAddedPodgroup = state.subjects.map(subject => {
+        if (subject.uniqueId === payload.subjectId) {
+          subject.podgroups.push(payload.podgroupObj);
+        }
+
+        return subject;
+      });
+      return { ...state, subjects: subjectsWithAddedPodgroup };
+
     default:
       return state;
   }

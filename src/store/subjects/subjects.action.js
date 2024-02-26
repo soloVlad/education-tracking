@@ -69,3 +69,10 @@ export const updateSubject = (subjectId, propName, value) => (
     { subjectId, propName, value }
   )
 );
+
+export const addPodgroup = (subjectId, podgroupObj) => (
+  reducerUtils.createAction(
+    SUBJECTS_ACTION_TYPES.ADD_PODGROUP,
+    { subjectId, podgroupObj },
+  )
+)

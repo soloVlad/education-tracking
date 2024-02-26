@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { debounce } from 'lodash';
 import { useDispatch } from 'react-redux';
 
@@ -42,9 +42,14 @@ const DetailsTable = ({ subject }) => {
     }
   }
 
+  useEffect(() => {
+    setSecondStudents(subject.podgroups[1]?.countStudents);
+    setFirstStudents(subject.podgroups[0]?.countStudents);
+  }, [JSON.stringify(subject)]);
+
   return (
     <table className={classes.table}>
-      <TableHead isSplitted={isSplitted} />
+      <TableHead subject={subject} isSplitted={isSplitted} />
 
       <tbody>
         <TableRow
@@ -107,7 +112,6 @@ const DetailsTable = ({ subject }) => {
               <input
                 className={classes.input}
                 type="text"
-                defaultValue={subject.podgroups[1].countStudents}
                 value={secondStudents}
                 onChange={(event) => handleStudentsChange(event, 1)}
               />
