@@ -21,8 +21,6 @@ const App = () => {
     dispatch(fetchSubjectsStartAsync())
   }, []);
 
-  console.log(subjects);
-
   return (
     <>
       <div className="container">
