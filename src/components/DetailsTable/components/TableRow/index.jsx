@@ -15,6 +15,9 @@ const TableRow = ({
       <td>{subject[propName]}</td>
       <td>
         <TeachersSelect
+          subjectId={subject.uniqueId}
+          podgroupId={0}
+          podgroupPropName={podgroupPropName}
           disabled={+subject[propName] === 0}
           initialValue={subject.podgroups[0][podgroupPropName]}
         />
@@ -23,6 +26,9 @@ const TableRow = ({
       {isSplitted && (
         <td>
           <TeachersSelect
+            subjectId={subject.uniqueId}
+            podgroupId={1}
+            podgroupPropName={podgroupPropName}
             disabled={+subject[propName] === 0}
             initialValue={subject.podgroups[1][podgroupPropName]}
           />

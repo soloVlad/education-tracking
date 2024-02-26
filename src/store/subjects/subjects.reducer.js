@@ -34,6 +34,18 @@ export const subjectsReducer = (
     case SUBJECTS_ACTION_TYPES.SEND_SUBJECTS:
       return state;
 
+    case SUBJECTS_ACTION_TYPES.UPDATE_SUBJECTS:
+      const { subjectId, podgroupId, podgroupPropName, value } = payload;
+
+      const updatedSubjects = state.subjects.map(subject => {
+        if (subject.uniqueId === subjectId) {
+          subject.podgroups[podgroupId][podgroupPropName] = value;
+        }
+
+        return subject;
+      })
+      return { ...state, subjects: updatedSubjects }
+
     default:
       return state;
   }
