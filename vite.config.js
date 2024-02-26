@@ -6,7 +6,7 @@ const __dirname = import.meta.dirname;
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/<REPO>/',
+  base: './',
   plugins: [react()],
   resolve: {
     alias: {
