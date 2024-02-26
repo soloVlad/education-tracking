@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
+import Select from "react-select";
 
 import { selectTeachers } from '@store/subjects/subjects.selector';
 import { updatePodgroupInfo } from "@store/subjects/subjects.action";
@@ -18,34 +19,33 @@ const TeachersSelect = ({
 
   const handleTeacherChange = (event) => {
     dispatch(
-      updatePodgroupInfo(subjectId, podgroupId, podgroupPropName, event.target.value)
+      updatePodgroupInfo(subjectId, podgroupId, podgroupPropName, event.value)
     );
   }
 
-  return (
-    <select
-      className={classes.select}
-      disabled={disabled}
-      defaultValue={initialValue?.id ?? ''}
-      onChange={handleTeacherChange}
-    >
-      <option
-        className={classes.option}
-        value="Вакансия"
-      >
-        Вакансия
-      </option>
+  const options = [
+    { value: '', label: 'Вакансия' },
+    ...teachers.map(teacher => ({ value: teacher.id, label: teacher.name })),
+  ]
 
-      {teachers.map(teacher => (
-        <option
-          className={classes.option}
-          key={teacher.id}
-          value={teacher.id}
-        >
-          {teacher.name}
-        </option>
-      ))}
-    </select>
+  return (
+    <Select
+      styles={{
+        option: (baseStyles, state) => ({
+          ...baseStyles,
+          backgroundColor: state.isSelected && classes.grayBlue,
+          color: state.isSelected && classes.textColor,
+        })
+      }}
+      classNames={{
+        option: (state) => classes.option,
+      }}
+      options={options}
+      defaultValue={initialValue || options[0]}
+      contentEditable={false}
+      onChange={handleTeacherChange}
+      isDisabled={disabled}
+    />
   )
 }
 
