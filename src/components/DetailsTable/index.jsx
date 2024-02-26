@@ -6,13 +6,13 @@ import { TableHead } from './components';
 
 import classes from './index.module.scss';
 
-const TeachersSelect = ({ initialValue }) => {
+const TeachersSelect = ({ initialValue, disabled = false }) => {
   const teachers = useSelector(selectTeachers);
 
   console.log(teachers);
 
   return (
-    <select className={classes.select}>
+    <select className={classes.select} disabled={disabled}>
       <option
         className={classes.option}
         value="Вакансия"
@@ -48,36 +48,80 @@ const DetailsTable = ({ subject }) => {
         <tr>
           <td>Лекции</td>
           <td>{subject.lecturesHours}</td>
-          <td><TeachersSelect initialValue={subject.podgroups[0].lectureTeacher} /></td>
+          <td>
+            <TeachersSelect
+              disabled={!+subject.lecturesHours}
+              initialValue={subject.podgroups[0].lectureTeacher}
+            />
+          </td>
+
           {isSplitted && (
-            <td><TeachersSelect initialValue={subject.podgroups[1].lectureTeacher} /></td>
+            <td>
+              <TeachersSelect
+                disabled={!+subject.lecturesHours}
+                initialValue={subject.podgroups[1].lectureTeacher}
+              />
+            </td>
           )}
         </tr>
 
         <tr>
           <td>Лабораторные занятия</td>
           <td>{subject.laboratoryHours}</td>
-          <td><TeachersSelect initialValue={subject.podgroups[0].laboratoryTeacher} /></td>
+          <td>
+            <TeachersSelect
+              disabled={!+subject.laboratoryHours}
+              initialValue={subject.podgroups[0].laboratoryTeacher}
+            />
+          </td>
+
           {isSplitted && (
-            <td><TeachersSelect initialValue={subject.podgroups[1].laboratoryTeacher} /></td>
+            <td>
+              <TeachersSelect
+                disabled={!+subject.laboratoryHours}
+                initialValue={subject.podgroups[1].laboratoryTeacher}
+              />
+            </td>
           )}
         </tr>
 
         <tr>
           <td>Практические</td>
           <td>{subject.practicHours}</td>
-          <td><TeachersSelect initialValue={subject.podgroups[0].practiceTeacher} /></td>
+          <td>
+            <TeachersSelect
+              disabled={!+subject.practicHours}
+              initialValue={subject.podgroups[0].practiceTeacher}
+            />
+          </td>
+
           {isSplitted && (
-            <td><TeachersSelect initialValue={subject.podgroups[1].practiceTeacher} /></td>
+            <td>
+              <TeachersSelect
+                disabled={!+subject.practicHours}
+                initialValue={subject.podgroups[1].practiceTeacher}
+              />
+            </td>
           )}
         </tr>
 
         <tr>
           <td>Семинарские</td>
           <td>{subject.seminarHours}</td>
-          <td><TeachersSelect initialValue={subject.podgroups[0].seminarTeacher} /></td>
+          <td>
+            <TeachersSelect
+              disabled={!+subject.seminarHours}
+              initialValue={subject.podgroups[0].seminarTeacher}
+            />
+          </td>
+
           {isSplitted && (
-            <td><TeachersSelect initialValue={subject.podgroups[1].seminarTeacher} /></td>
+            <td>
+              <TeachersSelect
+                disabled={!+subject.seminarHours}
+                initialValue={subject.podgroups[1].seminarTeacher}
+              />
+            </td>
           )}
         </tr>
 
