@@ -1,0 +1,38 @@
+@import '@scss/variables';
+
+.select {
+  width: 100%;
+  height: 100%;
+  background-color: $white;
+  border-radius: $radius;
+  border-color: $border-gray;
+
+  font-size: 16px;
+  font-family: inherit;
+  color: inherit;
+  text-align: center;
+  text-indent: 10px;
+  text-overflow: ellipsis;
+
+  transition: 0.2s all ease-out;
+
+  &:active {
+    border-color: $border-active-gray;
+  }
+
+  &:disabled {
+    background-color: $inactive-gray;
+
+    color: $inactive-gray-text;
+
+    &:active {
+      border-color: inherit;
+    }
+  }
+}
+
+.option {
+  margin: 10px;
+  padding: 10px;
+  background-color: $white;
+}

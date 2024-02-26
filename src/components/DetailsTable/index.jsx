@@ -1,149 +1,79 @@
-import { useSelector } from 'react-redux';
-
-import { selectTeachers } from '@store/subjects/subjects.selector';
-
-import { TableHead } from './components';
+import { TableHead, TableRow } from './components';
 
 import classes from './index.module.scss';
 
-const TeachersSelect = ({ initialValue, disabled = false }) => {
-  const teachers = useSelector(selectTeachers);
-
-  console.log(teachers);
-
-  return (
-    <select className={classes.select} disabled={disabled}>
-      <option
-        className={classes.option}
-        value="Вакансия"
-        selected={!initialValue}
-      >
-        Вакансия
-      </option>
-
-      {teachers.map(teacher => (
-        <option
-          className={classes.option}
-          key={teacher.id}
-          value={teacher.id}
-          selected={initialValue?.id === teacher.id}
-        >
-          {teacher.name}
-        </option>
-      ))}
-    </select>
-  )
-}
-
 const DetailsTable = ({ subject }) => {
-  console.log(subject);
-
   const isSplitted = subject.podgroups.length > 1;
+
+  console.log(subject);
 
   return (
     <table className={classes.table}>
       <TableHead isSplitted={isSplitted} />
 
       <tbody>
-        <tr>
-          <td>Лекции</td>
-          <td>{subject.lecturesHours}</td>
-          <td>
-            <TeachersSelect
-              disabled={!+subject.lecturesHours}
-              initialValue={subject.podgroups[0].lectureTeacher}
-            />
-          </td>
+        <TableRow
+          subject={subject}
+          rowTitle="Лекции"
+          propName="lecturesHours"
+          podgroupPropName="lectureTeacher"
+        />
 
-          {isSplitted && (
-            <td>
-              <TeachersSelect
-                disabled={!+subject.lecturesHours}
-                initialValue={subject.podgroups[1].lectureTeacher}
-              />
-            </td>
-          )}
-        </tr>
+        <TableRow
+          subject={subject}
+          rowTitle="Лабораторные занятия"
+          propName="laboratoryHours"
+          podgroupPropName="laboratoryTeacher"
+        />
 
-        <tr>
-          <td>Лабораторные занятия</td>
-          <td>{subject.laboratoryHours}</td>
-          <td>
-            <TeachersSelect
-              disabled={!+subject.laboratoryHours}
-              initialValue={subject.podgroups[0].laboratoryTeacher}
-            />
-          </td>
+        <TableRow
+          subject={subject}
+          rowTitle="Практические"
+          propName="practicHours"
+          podgroupPropName="practiceTeacher"
+        />
 
-          {isSplitted && (
-            <td>
-              <TeachersSelect
-                disabled={!+subject.laboratoryHours}
-                initialValue={subject.podgroups[1].laboratoryTeacher}
-              />
-            </td>
-          )}
-        </tr>
+        <TableRow
+          subject={subject}
+          rowTitle="Семинарские"
+          propName="seminarHours"
+          podgroupPropName="seminarTeacher"
+        />
 
-        <tr>
-          <td>Практические</td>
-          <td>{subject.practicHours}</td>
-          <td>
-            <TeachersSelect
-              disabled={!+subject.practicHours}
-              initialValue={subject.podgroups[0].practiceTeacher}
-            />
-          </td>
+        <TableRow
+          subject={subject}
+          rowTitle="Зачет"
+          propName=""
+          podgroupPropName="offsetTeacher"
+          condition={subject.offset}
+        />
 
-          {isSplitted && (
-            <td>
-              <TeachersSelect
-                disabled={!+subject.practicHours}
-                initialValue={subject.podgroups[1].practiceTeacher}
-              />
-            </td>
-          )}
-        </tr>
+        <TableRow
+          subject={subject}
+          rowTitle="Экзамен"
+          propName=""
+          podgroupPropName="examTeacher"
+          condition={subject.exam}
+        />
 
-        <tr>
-          <td>Семинарские</td>
-          <td>{subject.seminarHours}</td>
-          <td>
-            <TeachersSelect
-              disabled={!+subject.seminarHours}
-              initialValue={subject.podgroups[0].seminarTeacher}
-            />
-          </td>
-
-          {isSplitted && (
-            <td>
-              <TeachersSelect
-                disabled={!+subject.seminarHours}
-                initialValue={subject.podgroups[1].seminarTeacher}
-              />
-            </td>
-          )}
-        </tr>
-
-        {subject.offset && (
+        {isSplitted && (
           <tr>
-            <td>Зачет</td>
+            <td>Количество человек</td>
             <td></td>
-            <td><TeachersSelect initialValue={subject.podgroups[0].offsetTeacher} /></td>
-            {isSplitted && (
-              <td><TeachersSelect initialValue={subject.podgroups[1].offsetTeacher} /></td>
-            )}
-          </tr>
-        )}
-
-        {subject.exam && (
-          <tr>
-            <td>Экзамен</td>
-            <td></td>
-            <td><TeachersSelect initialValue={subject.podgroups[0].examTeacher} /></td>
-            {isSplitted && (
-              <td><TeachersSelect initialValue={subject.podgroups[1].examTeacher} /></td>
-            )}
+            <td>
+              <input
+                className={classes.input}
+                type="text"
+                defaultValue={subject.podgroups[0].countStudents}
+              />
+            </td>
+            <td>
+              <input
+                className={classes.input}
+                type="text"
+                defaultValue={subject.podgroups[1].countStudents}
+              />
+            </td>
           </tr>
         )}
 
