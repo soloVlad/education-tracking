@@ -76,3 +76,10 @@ export const addPodgroup = (subjectId, podgroupObj) => (
     { subjectId, podgroupObj },
   )
 )
+
+export const removePodgroup = (subjectId) => (
+  reducerUtils.createAction(
+    SUBJECTS_ACTION_TYPES.REMOVE_PODGROUP,
+    { subjectId }
+  )
+)

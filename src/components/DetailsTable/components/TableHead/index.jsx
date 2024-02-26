@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { IconPlus, IconTrashFilled } from "@tabler/icons-react";
 
-import { addPodgroup, updatePodgroupInfo } from "@store/subjects/subjects.action";
+import { addPodgroup, removePodgroup, updatePodgroupInfo } from "@store/subjects/subjects.action";
 
 import classes from './index.module.scss';
 
@@ -24,7 +24,13 @@ const TableHead = ({ subject, isSplitted }) => {
   }
 
   const handleRemoveClick = () => {
-
+    dispatch(removePodgroup(subject.uniqueId));
+    dispatch(updatePodgroupInfo(
+      subject.uniqueId,
+      0,
+      'countStudents',
+      subject.studentsNumber
+    ));
   }
 
   return (
